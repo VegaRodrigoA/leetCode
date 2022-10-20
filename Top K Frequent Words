@@ -1,0 +1,16 @@
+Given an array of strings words and an integer k, return the k most frequent strings.
+Return the answer sorted by the frequency from highest to lowest. Sort the words with the same frequency by their lexicographical order.
+
+Solution
+class Solution:
+    def topKFrequent(self, words: List[str], k: int) -> List[str]:
+        iterWords= {}
+        words.sort()
+        for word in words:
+            if word in iterWords.keys():
+                iterWords[word] += 1
+            else:
+                iterWords[word] = 1
+        ans = sorted(iterWords, key = lambda x: (-iterWords[x], x))
+        return ans[:k]
+        
