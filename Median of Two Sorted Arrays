@@ -1,0 +1,11 @@
+#Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays
+
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        merged = nums1 + nums2
+        merged.sort()
+        median = len(merged)
+        if median%2:
+            return (merged[int(median/2-.5)])
+        else:
+            return (merged[int(median/2-1)]+merged[int(median/2)])/2
